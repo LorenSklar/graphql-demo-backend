@@ -14,20 +14,21 @@ Why three endpoints instead of one GraphQL endpoint?
 - This architecture serves our learning goals better despite abandoning GraphQL orthodoxy re: a single endpoint
 """
 
-from flask import Flask, request, jsonify
-from flask_cors import CORS
 from ariadne import make_executable_schema, load_schema_from_path, ObjectType, QueryType, graphql_sync
 from ariadne.asgi import GraphQL
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import json
-import time
 import os
+import time
+
 
 # === FLASK APP SETUP ===
 app = Flask(__name__)
 
 # === CORS CONFIGURATION ===
-# Allow all origins for development
-CORS(app, origins="*", supports_credentials=False)
+origins = os.getenv("CORS_ORIGINS", "").split(",")  # Get CORS origins from environment variable
+CORS(app, origins=origins, supports_credentials=True)
 
 # === GRAPHQL SCHEMA DEFINITION ===
 type_defs = """
