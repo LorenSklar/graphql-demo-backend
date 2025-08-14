@@ -1,0 +1,308 @@
+domains:
+  - id: "domain-uuid-1"
+    type: "Domain"
+    name: "Queries"
+    inquiry: "How do I ask for data?"
+    clusterIds:
+      - "cluster-uuid-1a"
+      - "cluster-uuid-1b"
+      - "cluster-uuid-1c"
+      - "cluster-uuid-1d"
+      - "cluster-uuid-1e"
+      - "cluster-uuid-1f"
+      - "cluster-uuid-1g"
+      - "cluster-uuid-1h"
+    recommendedOrder: 1
+
+  - id: "domain-uuid-2"
+    type: "Domain"
+    name: "Mutations"
+    inquiry: "How do I change existing data?"
+    clusterIds:
+      - "cluster-uuid-2a"
+      - "cluster-uuid-2b"
+      - "cluster-uuid-2c"
+      - "cluster-uuid-2d"
+    recommendedOrder: 2
+
+  - id: "domain-uuid-3"
+    type: "Domain"
+    name: "Exploration"
+    inquiry: "How do I explore what`s possible?"
+    clusterIds:
+      - "cluster-uuid-3a"
+      - "cluster-uuid-3b"
+      - "cluster-uuid-3c"
+      - "cluster-uuid-3d"
+    recommendedOrder: 3
+
+  - id: "domain-uuid-4"
+    type: "Domain"
+    name: "Python Integration"
+    inquiry: "How do I use Python with GraphQL?"
+    clusterIds:
+      - "cluster-uuid-4a"
+      - "cluster-uuid-4b"
+      - "cluster-uuid-4c"
+    recommendedOrder: 4
+
+  - id: "domain-uuid-5"
+    type: "Domain"
+    name: "Error Handling"
+    inquiry: "How do I handle things when they go wrong?"
+    clusterIds:
+      - "cluster-uuid-5a"
+      - "cluster-uuid-5b"
+      - "cluster-uuid-5c"
+      - "cluster-uuid-5d"
+    recommendedOrder: 5
+
+  - id: "domain-uuid-6"
+    type: "Domain"
+    name: "Security"
+    inquiry: "How do I make my data secure?"
+    clusterIds:
+      - "cluster-uuid-6a"
+      - "cluster-uuid-6b"
+      - "cluster-uuid-6c"
+      - "cluster-uuid-6d"
+    recommendedOrder: 6
+
+  - id: "domain-uuid-7"
+    type: "Domain"
+    name: "Efficient Implementation"
+    inquiry: "How do I implement queries efficiently?"
+    clusterIds:
+      - "cluster-uuid-7a"
+      - "cluster-uuid-7b"
+      - "cluster-uuid-7c"
+      - "cluster-uuid-7d"
+    recommendedOrder: 7
+
+clusters:
+  # Domain 1: Queries
+  - id: "cluster-uuid-1a"
+    type: "Cluster"
+    name: "Basic Queries"
+    inquiry: "How can I request a single piece of information?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1a1", "concept-uuid-1a2", "concept-uuid-1a3"]
+
+  - id: "cluster-uuid-1b"
+    type: "Cluster"
+    name: "Multiple Fields"
+    inquiry: "How can I request multiple pieces of information in a single query?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1b1", "concept-uuid-1b2"]
+
+  - id: "cluster-uuid-1c"
+    type: "Cluster"
+    name: "Branching Data"
+    inquiry: "How do I request more complex data structures?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1c1"]
+
+  - id: "cluster-uuid-1d"
+    type: "Cluster"
+    name: "Lists"
+    inquiry: "How can I request multiple items as a list?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1d1"]
+
+  - id: "cluster-uuid-1e"
+    type: "Cluster"
+    name: "Filtering"
+    inquiry: "How do I retrieve only the items I`m interested in?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1e1"]
+
+  - id: "cluster-uuid-1f"
+    type: "Cluster"
+    name: "Sorting"
+    inquiry: "How can I control the order of the data returned?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1f1"]
+
+  - id: "cluster-uuid-1g"
+    type: "Cluster"
+    name: "Aliases"
+    inquiry: "How can I rename fields in the query response?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1g1"]
+
+  - id: "cluster-uuid-1h"
+    type: "Cluster"
+    name: "Variables"
+    inquiry: "How can I parameterize my queries for reuse?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1h1"]
+
+  # Domain 2: Mutations
+  - id: "cluster-uuid-2a"
+    type: "Cluster"
+    name: "Simple Mutations"
+    inquiry: "How can I change a single piece of data?"
+    domainId: "domain-uuid-2"
+    conceptIds: ["concept-uuid-2a1"]
+
+  - id: "cluster-uuid-2b"
+    type: "Cluster"
+    name: "Arguments in Mutations"
+    inquiry: "How can I pass inputs to modify data?"
+    domainId: "domain-uuid-2"
+    conceptIds: ["concept-uuid-2b1"]
+
+  - id: "cluster-uuid-2c"
+    type: "Cluster"
+    name: "Computed Fields"
+    inquiry: "How can I include server-side computed data in a mutation response?"
+    domainId: "domain-uuid-2"
+    conceptIds: ["concept-uuid-2c1"]
+
+  - id: "cluster-uuid-2d"
+    type: "Cluster"
+    name: "Batch Updates"
+    inquiry: "How can I update multiple items at once?"
+    domainId: "domain-uuid-2"
+    conceptIds: ["concept-uuid-2d1"]
+
+  # Domain 3: Exploration
+  - id: "cluster-uuid-3a"
+    type: "Cluster"
+    name: "Schema Introspection"
+    inquiry: "How can I discover the full API schema?"
+    domainId: "domain-uuid-3"
+    conceptIds: ["concept-uuid-3a1"]
+
+  - id: "cluster-uuid-3b"
+    type: "Cluster"
+    name: "Self-documenting APIs"
+    inquiry: "How can I read API documentation directly from the endpoint?"
+    domainId: "domain-uuid-3"
+    conceptIds: ["concept-uuid-3b1"]
+
+  - id: "cluster-uuid-3c"
+    type: "Cluster"
+    name: "Type Discovery"
+    inquiry: "How do I find what types are available for queries and mutations?"
+    domainId: "domain-uuid-3"
+    conceptIds: ["concept-uuid-3c1"]
+
+  - id: "cluster-uuid-3d"
+    type: "Cluster"
+    name: "Argument Discovery"
+    inquiry: "How do I find what arguments a field accepts?"
+    domainId: "domain-uuid-3"
+    conceptIds: ["concept-uuid-3d1"]
+
+  # Domain 4: Python Integration
+  - id: "cluster-uuid-4a"
+    type: "Cluster"
+    name: "Python Clients"
+    inquiry: "How do I use Python libraries to query a GraphQL API?"
+    domainId: "domain-uuid-4"
+    conceptIds: ["concept-uuid-4a1"]
+
+  - id: "cluster-uuid-4b"
+    type: "Cluster"
+    name: "Framework Integration"
+    inquiry: "How can I integrate GraphQL into FastAPI, Flask, or Django?"
+    domainId: "domain-uuid-4"
+    conceptIds: ["concept-uuid-4b1"]
+
+  - id: "cluster-uuid-4c"
+    type: "Cluster"
+    name: "Response Handling"
+    inquiry: "How do I parse and handle GraphQL responses as Python data?"
+    domainId: "domain-uuid-4"
+    conceptIds: ["concept-uuid-4c1"]
+
+  # Domain 5: Error Handling
+  - id: "cluster-uuid-5a"
+    type: "Cluster"
+    name: "Syntax Errors"
+    inquiry: "What happens when my query has invalid syntax?"
+    domainId: "domain-uuid-5"
+    conceptIds: ["concept-uuid-5a1"]
+
+  - id: "cluster-uuid-5b"
+    type: "Cluster"
+    name: "Validation Errors"
+    inquiry: "How does the server respond when I ask for invalid fields?"
+    domainId: "domain-uuid-5"
+    conceptIds: ["concept-uuid-5b1"]
+
+  - id: "cluster-uuid-5c"
+    type: "Cluster"
+    name: "Runtime Errors"
+    inquiry: "What happens when a server error occurs during execution?"
+    domainId: "domain-uuid-5"
+    conceptIds: ["concept-uuid-5c1"]
+
+  - id: "cluster-uuid-5d"
+    type: "Cluster"
+    name: "Debugging Patterns"
+    inquiry: "How can I systematically identify and fix query issues?"
+    domainId: "domain-uuid-5"
+    conceptIds: ["concept-uuid-5d1"]
+
+  # Domain 6: Security
+  - id: "cluster-uuid-6a"
+    type: "Cluster"
+    name: "Authentication"
+    inquiry: "How do I ensure only authorized users access the API?"
+    domainId: "domain-uuid-6"
+    conceptIds: ["concept-uuid-6a1"]
+
+  - id: "cluster-uuid-6b"
+    type: "Cluster"
+    name: "Authorization"
+    inquiry: "How can I control what data each user can see or modify?"
+    domainId: "domain-uuid-6"
+    conceptIds: ["concept-uuid-6b1"]
+
+  - id: "cluster-uuid-6c"
+    type: "Cluster"
+    name: "Data Masking"
+    inquiry: "How can I hide sensitive fields from certain users?"
+    domainId: "domain-uuid-6"
+    conceptIds: ["concept-uuid-6c1"]
+
+  - id: "cluster-uuid-6d"
+    type: "Cluster"
+    name: "Role-based Field Access"
+    inquiry: "How do I assign access at the field level based on roles?"
+    domainId: "domain-uuid-6"
+    conceptIds: ["concept-uuid-6d1"]
+
+  # Domain 7: Efficient Implementation
+  - id: "cluster-uuid-7a"
+    type: "Cluster"
+    name: "Query Optimization"
+    inquiry: "How can I write queries that run efficiently?"
+    domainId: "domain-uuid-7"
+    conceptIds: ["concept-uuid-7a1"]
+
+  - id: "cluster-uuid-7b"
+    type: "Cluster"
+    name: "Avoiding Over-fetching"
+    inquiry: "How can I request only the data I need to improve performance?"
+    domainId: "domain-uuid-7"
+    conceptIds: ["concept-uuid-7b1"]
+
+  - id: "cluster-uuid-7c"
+    type: "Cluster"
+    name: "Batching Requests"
+    inquiry: "How can I combine multiple requests to reduce network overhead?"
+    domainId: "domain-uuid-7"
+    conceptIds: ["concept-uuid-7c1"]
+
+  - id: "cluster-uuid-7d"
+    type: "Cluster"
+    name: "Caching"
+    inquiry: "How can I reuse previously fetched data to improve performance?"
+    domainId: "domain-uuid-7"
+    conceptIds: ["concept-uuid-7d1"]
+
+
+
