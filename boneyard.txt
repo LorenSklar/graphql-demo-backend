@@ -1,0 +1,11 @@
+boneyard.md
+
+1. **Scaffolding matters from the start** — even a “first” exercise should suggest a previous exercise for struggling students, so there’s always a path backward.
+2. **Shift in mental model** — GraphQL is like filling out a form where the fields you list are exactly what gets returned, not a Q\&A exchange.
+3. **Teaching contrast** — Use the form analogy, then remove fields step by step to make GraphQL’s selective return power obvious, especially compared to REST.
+4. Allow a path that allows you to go straight to adding pairs. Is that proximal? No, it is not. Can I make it proximal?
+4a. Allow a path that allows you to go straight to schema introspection rather than hunt and peck
+5. Think about a reset exercise if the sequence isn't working. Remember unhappy path!
+6. Student signals thumbs up (confident) or thumbs down (still learning) to trigger end of exercise sequence and skip to reflection. Do we really want to trust the student on this? Perhaps some good framing? Or maybe skip to recreate from memory?
+7. Did we talk about recreate from memory? Exercises should go from copy-and-paste to recreate from memory to research and add features.
+8. Add explicit "guided mode” vs “exploration mode” as only 30% of learners thrive when self directed. Perhaps show teachers how to scaffold exploration mode?

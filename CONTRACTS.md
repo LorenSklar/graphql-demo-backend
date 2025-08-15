@@ -13,7 +13,7 @@ enum HintType {
   A prompt or suggestion that nudges the learner forward.
   Not tied to a specific wrong answer.
   Required.
-  Example: "Remember that queries always start with query or mutation."
+  Example: "Replace the word inside curly brackets."
   """
   GENERAL_HINT
 
@@ -22,14 +22,14 @@ enum HintType {
   Tied to a specific error often in syntax.
   Used to provide targeted feedback for mistakes.
   Optional.
-  Example: forgetting braces, requesting a non-existent field, or querying a scalar when a list is expected.
+  Example: forgetting braces, requesting a non-existent field, etc.
   """
   COMMON_ERROR
   
 
   """
-  Tied to a specific misconception about the concept.
-  Triggered when a learner demonstrates an incomplete or alternative understanding.
+  Tied to a specific misconception.
+  Triggered when a learner demonstrates an incomplete or inaccurate understanding.
   Optional.
   Example: requesting a subfield without first querying the parent field, demonstrating a misunderstanding of GraphQL schema structure.
   """
@@ -76,6 +76,15 @@ type Concept {
   name: String!
   inquiry: String!
   objective: String!
+  generalHints: [Hint!]    # To clarify instructions or nudge thinking
+                           # I moved hints to the concept level rather than exercises.
+                           # Pros: Avoids repeating syntax hints across multiple exercises.
+                           # Cons: Forces all exercises under this concept to share the same hints
+                           # Felt cute. May delete later 😎
+
+  optionalHints: [Hint!]   # Common misconceptions and errors identified by tags or triggerPattern
+  reflectionPrompts: [String!]!  # Questions or cues presented to the learner to encourage reflection on the concept.
+  reflectionTargets: [String!]!  # Key points or insights the reflection is intended to elicit or focus on.
   foundationIds: [ID!]     # Prerequisite concepts
   extensionIds: [ID!]      # Follow-up concepts
   exerciseIds: [ID!]       # Exercises attached
@@ -89,11 +98,11 @@ type Exercise {
   id: ID!
   type: String!
   inquiry: String!                      # The exercise question
-  generalHints: [Hint!]!                # Required nudges for thinking
-  optionalHints: [Hint!]                # Common misconceptions and errors, matched by pattern
-  solution: [String!]!                  # Step-by-step solutions from starter to full
+  prefill: Boolean!                     # Does this exercise replace previous text in editor?
+  prefillText: String!                  # The initial code shown in the editor if prefill is true. Use "" to clear existing code from editor.
+  solutions: [String!]!                 # Solutions progressing from partial hints to full answer.
   minimalAnswerPattern: String!         # Minimal regex to validate core expected structure
-  difficultyScore: Int                  # To be implemented based on learner performance
+  difficultyScore: Int                  # To be implemented based on actual learner performance
   suggestedNextExerciseIds: [ID!]       # Adaptive branching
   suggestedPrevExerciseIds: [ID!]       # Adaptive branching
 }
@@ -103,9 +112,10 @@ type Exercise {
 # ------------------------
 type Hint {
   id: ID!
-  text: String!         # Hint message
-  type: HintType!       # GENERAL_HINT | COMMON_MISCONCEPTION | COMMON_ERROR
-  tag: String           # Optional categorization, e.g., 'syntax', 'field', 'logic'
+  text: String!             # Hint message
+  type: HintType!           # GENERAL_HINT | COMMON_MISCONCEPTION | COMMON_ERROR
+  tags: [String!]           # Optional categorizations, e.g., 'syntax', 'field', 'logic'
+  triggerPattern: String    # Optional regex pattern for recognizing syntax errors
 }
 
 # ------------------------
@@ -114,7 +124,7 @@ type Hint {
 type Resource {
   id: ID!                  # UUID
   type: String!            # "Resource"
-  title: String!           # Title of the resource
   typeEnum: ResourceType!  # Category
+  title: String!           # Title of the resource
   url: String!             # URL to the resource
 }
