@@ -14,13 +14,14 @@ Why three endpoints instead of one GraphQL endpoint?
 - This architecture serves our learning goals better despite abandoning GraphQL orthodoxy re: a single endpoint
 """
 
-from ariadne import make_executable_schema, load_schema_from_path, ObjectType, QueryType, graphql_sync
-from ariadne.asgi import GraphQL
-from flask import Flask, request, jsonify
+from flask import Flask
 from flask_cors import CORS
-import json
 import os
-import time
+
+# Import our modular endpoints
+from src.content.content import handle_content_request
+from src.sandbox.sandbox import handle_sandbox_request
+from src.logging.logger import handle_log_request
 
 
 # === FLASK APP SETUP ===
@@ -30,92 +31,23 @@ app = Flask(__name__)
 origins = os.getenv("CORS_ORIGINS", "").split(",")  # Get CORS origins from environment variable
 CORS(app, origins=origins, supports_credentials=True)
 
-# === GRAPHQL SCHEMA DEFINITION ===
-type_defs = """
-    type Query {
-        ping: String!
-        marco: String!
-        field: String!
-    }
-"""
-
-# === GRAPHQL RESOLVERS ===
-query = QueryType()
-
-@query.field("ping")
-def resolve_ping(*_):
-    return "pong"
-
-@query.field("marco")
-def resolve_marco(*_):
-    return "polo"
-
-@query.field("field")
-def resolve_field(*_):
-    return "value"
-
-# === CREATE EXECUTABLE SCHEMA ===
-schema = make_executable_schema(type_defs, query)
-
 # === GRAPHQL LESSON ENDPOINT ===
 @app.route('/content', methods=['GET','POST'])
 def graphql_content():
     """GraphQL endpoint for lesson content and the dual-graph learning system"""
-    try:
-        data = request.get_json()
-        query = data.get('query', '')
-        variables = data.get('variables', {})
-        
-        success, result = graphql_sync(schema, {"query": query, "variables": variables})
-        
-        if success:
-            return jsonify(result)
-        else:
-            return jsonify({"errors": result}), 400
-            
-    except Exception as e:
-        return jsonify({'error': str(e)}), 400
+    return handle_content_request()
 
 # === GRAPHQL PRACTICE ENDPOINT ===
 @app.route('/sandbox', methods=['GET','POST'])
 def graphql_sandbox():
     """GraphQL endpoint for interactive GraphQL practice and learning"""
-    try:
-        data = request.get_json()
-        query = data.get('query', '')
-        variables = data.get('variables', {})
-        
-        success, result = graphql_sync(schema, {"query": query, "variables": variables})
-        
-        if success:
-            return jsonify(result)
-        else:
-            return jsonify({"errors": result}), 400
-            
-    except Exception as e:
-        return jsonify({'error': str(e)}), 400
+    return handle_sandbox_request()
 
 # === REST LOGGING ENDPOINT ===
 @app.route('/log', methods=['POST'])
 def log_entry():
     """REST endpoint for logging user queries and system responses"""
-    try:
-        data = request.get_json()
-        
-        # Simple logging for MVP
-        log_entry = {
-            'timestamp': time.time(),
-            'user_query': data.get('query', ''),
-            'response': data.get('response', ''),
-            'success': data.get('success', False)
-        }
-        
-        # TODO: Save to file or implement proper logging
-        print(f"LOG: {json.dumps(log_entry)}")
-        
-        return jsonify({'status': 'logged', 'timestamp': log_entry['timestamp']})
-    except Exception as e:
-        return jsonify({'error': str(e)}), 400
+    return handle_log_request()
 
 # === MAIN EXECUTION ===
 if __name__ == '__main__':

@@ -48,12 +48,15 @@ python -m pytest
 
 ```
 graphql-demo-backend/
-├── app.py                 # Main Flask application
-├── schema/               # GraphQL schema definitions
-├── resolvers/            # GraphQL resolver functions
-├── lessons/              # Lesson content and data
-├── sandbox/              # Sandbox endpoint logic
-├── logging/              # Logging utilities
+├── app.py                # Main Flask application
+├── src/                  # Source code
+│   ├── content/          # Content endpoint logic & schema
+│   ├── sandbox/          # Sandbox endpoint logic & schema
+│   ├── lessons/          # Lesson content and data
+│   └── logging/          # Logging utilities
+├── docs/                 # Documentation
+├── templates/            # Template files
+├── tests/                # Test files
 └── requirements.txt      # Python dependencies
 ```
 

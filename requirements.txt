@@ -3,5 +3,6 @@ ariadne==0.20.1
 python-multipart==0.0.6
 flask-cors==4.0.0
 gunicorn==21.2.0
+pyyaml==6.0.1
 
 

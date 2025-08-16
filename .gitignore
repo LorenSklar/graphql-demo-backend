@@ -60,6 +60,8 @@ logs/
 *.temp
 
 # Personal development tools
+boneyard.txt
 breadcrumbs.md
 reflections.md
 VISION.md
+
