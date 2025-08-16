@@ -15,10 +15,6 @@ sandbox_type_defs = """
         ping: String!
         marco: String!
         field: String!
-        # TODO: Add practice data types
-        # users: [User!]!
-        # posts: [Post!]!
-        # comments: [Comment!]!
     }
 """
 
@@ -26,16 +22,16 @@ sandbox_type_defs = """
 sandbox_query = QueryType()
 
 @sandbox_query.field("ping")
-def resolve_sandbox_ping(*_):
-    return "sandbox-pong"
+def resolve_ping(*_):
+    return "pong"
 
 @sandbox_query.field("marco")
-def resolve_sandbox_marco(*_):
-    return "sandbox-polo"
+def resolve_marco(*_):
+    return "polo"
 
 @sandbox_query.field("field")
-def resolve_sandbox_field(*_):
-    return "sandbox-value"
+def resolve_field(*_):
+    return "value"
 
 # === CREATE SANDBOX SCHEMA ===
 sandbox_schema = make_executable_schema(sandbox_type_defs, sandbox_query)
