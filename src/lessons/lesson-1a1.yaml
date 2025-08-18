@@ -1,0 +1,136 @@
+# lesson-1a1.yaml
+# How do I request information using GraphQL?
+
+concepts:
+  - id: "concept-uuid-1a1"
+    type: "Concept"
+    name: "Single Field Query"
+    inquiry: "How do I request information using GraphQL?"
+    objective: "Discover how to write a basic GraphQL query for a single field"
+    generalHints:
+      - id: "hint-uuid-1a1-1a"
+        text: "Replace the word in { curly braces } with a different word. Some words receive data in response and others recieve an error message. For now, both are ok."
+        type: "GENERAL_HINT"
+        tag: "exploration"
+      - id: "hint-uuid-1a1-1b"
+        text: "Think about natural pairs like sun and moon or up and down. Just the first word is needed for the query."
+        type: "GENERAL_HINT"
+        tag: "exploration"          
+      - id: "hint-uuid-1a1-1c"
+        text: "The structure stays exactly the same. Only the word inside the { curly braces } changes."
+        type: "GENERAL_HINT"
+        tag: "syntax"
+    optionalHints:
+      - id: "hint-uuid-1a1-1-field-not-found"
+        text: "Great exploration! That pair doesn't exist. Try another one."
+        type: "COMMON_ERROR"
+        tag: "syntax"
+        triggerPattern: "Cannot query field.*on type"
+      - id: "hint-uuid-1a1-1-error-no-curly-braces"
+        text: "Did you forget the { curly braces }? GraphQL needs those around your question."
+        type: "COMMON_ERROR"
+        tag: "syntax"
+        triggerPattern: "Syntax Error.*Expected.*\\{"
+    reflectionPrompts:
+      - "What did you notice about how the server responds to different requests?"
+      - "What words and symbols are required? Optional? Different than Python?"
+      - "What happens when you ask for something that doesn't exist?"
+      - "How do you think the server 'knows' what fields are available?"
+      - "How would you describe the process of asking for and receiving information in GraphQL?"
+    reflectionTargets:
+      - "The server responds with different values for different requests."
+      - "The server responds with the same data if the query is the same."
+      - "The question and the answer are almost identical in structure and content with the response containing some additional information provided by the server."
+      - "GraphQL does not match Python syntax. Curly braces are still dictionary like but quotes are not needed for field names."
+      - "Error messages help you understand what's available."
+      - "GraphQL is a conversation between client and server."
+      - "GraphQL allows the client to request exactly the data it needs unlike REST which always responds with a fixed structure."
+    foundationIds: []  # This is the starting point
+    extensionIds: ["concept-uuid-1a2"]
+    exerciseIds: ["exercise-uuid-1a1-1", "exercise-uuid-1a1-2", "exercise-uuid-1a1-3", "exercise-uuid-1a1-4"]
+    resourceIds: ["resource-uuid-1a1-1", "resource-uuid-1a1-2", "resource-uuid-1a1-3"]
+
+exercises:
+  - id: "exercise-uuid-1a1-1"
+    type: "Exercise"
+    inquiry: "Hit run and see what happens. Then try changing 'ping' to any word you want and run it again."
+    prefillEditor: true
+    prefillEditorText: |
+      query {
+        ping
+      }
+    solutions:
+      - "What is the format for a GraphQL query? Where might you look that up? My favorite resource is W3schoools.com/graphql. What's your favorite resource?"
+      - "Start with the keyword query and add { }"
+      - "Now add a field name: { marco }"
+    minimalAnswerPattern: "(query\\s*)?\\{.*\\w+.*\\}"
+    difficultyScore: 1
+    suggestedNextExerciseIds: ["exercise-uuid-1a1-2"]
+    suggestedPrevExerciseIds: []
+
+  - id: "exercise-uuid-1a1-2"
+    type: "Exercise"
+    inquiry: "Write a query to ask for a different field. Try 'sun'. What other field names work?"
+    prefillEditor: false
+    prefillEditorText: null
+    solution:
+      - "What did the last query look like? Can you recreate it with a different word?"
+      - "Start the keyword query then add { }"
+      - "Now add a field name: { sun }"
+    minimalAnswerPattern: "(query\\s*)?\\{.*\\w+.*\\}"
+    difficultyScore: 1
+    suggestedNextExerciseIds: ["exercise-uuid-1a1-3"]
+    suggestedPrevExerciseIds: ["exercise-uuid-1a1-1"]
+    
+  - id: "exercise-uuid-1a1-3"
+    type: "Exercise"
+    inquiry: "What happens if you remove the word 'query'? Does it still work? Why? What about the curly braces?"
+    prefillEditor: false
+    prefillEditorText: null
+    solution:
+      - "What did the last query look like? Can you recreate it with a different word?"
+      - "Start with curly braces: { }"
+      - "Now add a field name: { up }"
+    minimalAnswerPattern: "(query\\s*)?\\{.*\\w+.*\\}"
+    difficultyScore: 2
+    suggestedNextExerciseIds: ["exercise-uuid-1a1-4"]
+    suggestedPrevExerciseIds: ["exercise-uuid-1a1-2"]
+
+  - id: "exercise-uuid-1a1-4"
+    type: "Exercise"
+    inquiry: "Can you write a simple GraphQL query from memory? Try asking for any field you want."
+    prefillEditor: true
+    prefillEditorText: ""
+    solution:
+      - "What is the format for a GraphQL query? Can you write it from memory?"
+      - "Start with the keyword query and add { }"
+      - "Now add a field name: { marco }"
+    minimalAnswerPattern: "(query\\s*)?\\{.*\\w+.*\\}"
+    difficultyScore: 3
+    suggestedNextExerciseIds: ["exercise-uuid-1a2-1"] 
+    suggestedPrevExerciseIds: ["exercise-uuid-1a1-3"]
+
+resources:
+  - id: "resource-uuid-1a1-1"
+    type: "Resource"
+    title: "GraphQL Queries Explained (Video)"
+    typeEnum: "VIDEO"
+    url: "https://www.youtube.com/watch?v=ed8SzALpx1Q"
+
+  - id: "resource-uuid-1a1-2"
+    type: "Resource"
+    title: "What is a GraphQL Query?"
+    typeEnum: "ARTICLE"
+    url: "https://blog.logrocket.com/what-is-graphql-query/"
+
+  - id: "resource-uuid-1a1-3"
+    type: "Resource"
+    title: "Official GraphQL Documentation: Queries"
+    typeEnum: "DOCUMENTATION"
+    url: "https://graphql.org/learn/queries/"
+
+  - id: "resource-uuid-1a1-4"
+    type: "Resource"
+    title: "GraphQL Query Basics - Interactive Tutorial"
+    typeEnum: "TUTORIAL"
+    url: "https://graphql.org/learn/queries/"

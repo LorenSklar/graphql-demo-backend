@@ -1,0 +1,57 @@
+clusters:
+  # Domain 1: Queries
+  - id: "cluster-uuid-1a"
+    type: "Cluster"
+    name: "Basic Queries"
+    inquiry: "How can I request a single piece of information?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1a1", "concept-uuid-1a2", "concept-uuid-1a3"]
+
+  - id: "cluster-uuid-1b"
+    type: "Cluster"
+    name: "Multiple Fields"
+    inquiry: "How can I request multiple pieces of information in a single query?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1b1", "concept-uuid-1b2"]
+
+  - id: "cluster-uuid-1c"
+    type: "Cluster"
+    name: "Branching Data"
+    inquiry: "How do I request more complex data structures?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1c1"]
+
+  - id: "cluster-uuid-1d"
+    type: "Cluster"
+    name: "Lists"
+    inquiry: "How can I request multiple items as a list?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1d1"]
+
+  - id: "cluster-uuid-1e"
+    type: "Cluster"
+    name: "Filtering"
+    inquiry: "How do I retrieve only the items I`m interested in?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1e1"]
+
+  - id: "cluster-uuid-1f"
+    type: "Cluster"
+    name: "Sorting"
+    inquiry: "How can I control the order of the data returned?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1f1"]
+
+  - id: "cluster-uuid-1g"
+    type: "Cluster"
+    name: "Aliases"
+    inquiry: "How can I rename fields in the query response?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1g1"]
+
+  - id: "cluster-uuid-1h"
+    type: "Cluster"
+    name: "Variables"
+    inquiry: "How can I parameterize my queries for reuse?"
+    domainId: "domain-uuid-1"
+    conceptIds: ["concept-uuid-1h1"]

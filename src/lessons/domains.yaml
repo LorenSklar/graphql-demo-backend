@@ -1,0 +1,15 @@
+domains:
+  - id: "domain-uuid-1"
+    type: "Domain"
+    name: "Queries"
+    inquiry: "How do I ask for data?"
+    clusterIds:
+      - "cluster-uuid-1a"
+      - "cluster-uuid-1b"
+      - "cluster-uuid-1c"
+      - "cluster-uuid-1d"
+      - "cluster-uuid-1e"
+      - "cluster-uuid-1f"
+      - "cluster-uuid-1g"
+      - "cluster-uuid-1h"
+    recommendedOrder: 1

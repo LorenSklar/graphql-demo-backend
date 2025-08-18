@@ -98,8 +98,8 @@ type Exercise {
   id: ID!
   type: String!
   inquiry: String!                      # The exercise question
-  prefill: Boolean!                     # Does this exercise replace previous text in editor?
-  prefillText: String!                  # The initial code shown in the editor if prefill is true. Use "" to clear existing code from editor.
+  prefillEditor: Boolean!               # Does this exercise replace previous text in editor?
+  prefillEditorText: String!            # The initial code shown in the editor if prefill is true. Use "" to clear existing code from editor.
   solutions: [String!]!                 # Solutions progressing from partial hints to full answer.
   minimalAnswerPattern: String!         # Minimal regex to validate core expected structure
   difficultyScore: Int                  # To be implemented based on actual learner performance
