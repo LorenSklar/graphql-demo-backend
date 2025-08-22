@@ -1,5 +1,7 @@
 # GraphQL Practice Tool Backend
 
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+
 A Python-based GraphQL API backend that provides the core functionality for an interactive GraphQL learning platform. This backend serves lesson content, handles interactive query execution, and logs user interactions for a hands-on GraphQL learning experience.
 
 ## Architecture
